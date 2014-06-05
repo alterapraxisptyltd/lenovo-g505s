@@ -2,6 +2,7 @@
  * This file is part of the coreboot project.
  *
  * Copyright (C) 2012 Advanced Micro Devices, Inc.
+ * Copyright (C) 2014 Edward O'Callaghan <eocallaghan@alterapraxis.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -367,11 +368,11 @@ CONST AP_MTRR_SETTINGS ROMDATA TrinityApMtrrSettingsList[] =
 #define PULL_DOWN	(PullDown | PullUpB)
 #define PULL_NONE	(PullUpB)
 
-GPIO_CONTROL pavilion_m6_1035dx_gpio[] = {
+GPIO_CONTROL lenovo_g505s_gpio[] = {
 	{57, Function1, OUTPUT_HIGH | PULL_NONE},	/* WLAN enable */
 	{-1}
 };
-#define BLDCFG_FCH_GPIO_CONTROL_LIST           (&pavilion_m6_1035dx_gpio[0])
+#define BLDCFG_FCH_GPIO_CONTROL_LIST           (&lenovo_g505s_gpio[0])
 
 
 /* These definitions could be moved to a common Hudson header, should we decide
@@ -383,7 +384,7 @@ GPIO_CONTROL pavilion_m6_1035dx_gpio[] = {
 #define SCI_MAP_XHCI_10_0	0x78
 #define SCI_MAP_PWRBTN		0x73
 
-SCI_MAP_CONTROL m6_1035dx_sci_map[] = {
+SCI_MAP_CONTROL lenovo_g505s_sci_map[] = {
 	{GEVENT_PIN( EC_SCI_GEVENT ), EC_SCI_GPE},
 	{GEVENT_PIN( EC_LID_GEVENT ), EC_LID_GPE},
 	{GEVENT_PIN( PCIE_GEVENT ), PCIE_GPE},
@@ -392,7 +393,7 @@ SCI_MAP_CONTROL m6_1035dx_sci_map[] = {
 	{SCI_MAP_XHCI_10_0, PME_GPE},
 	{SCI_MAP_PWRBTN, PME_GPE},
 };
-#define BLDCFG_FCH_SCI_MAP_LIST			(&m6_1035dx_sci_map[0])
+#define BLDCFG_FCH_SCI_MAP_LIST			(&lenovo_g505s_sci_map[0])
 
 // The following definitions specify the default values for various parameters in which there are
 // no clearly defined defaults to be used in the common file.  The values below are based on product

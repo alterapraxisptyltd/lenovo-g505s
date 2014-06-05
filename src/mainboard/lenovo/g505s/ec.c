@@ -1,11 +1,13 @@
 /*
  * Copyright (C) 2014 Alexandru Gagniuc <mr.nuke.me@gmail.com>
+ * Copyright (C) 2014 Edward O'Callaghan <eocallaghan@alterapraxis.com>
  * Subject to the GNU GPL v2, or (at your option) any later version.
  */
 
 #include "ec.h"
-#include <ec/compal/ene932/ec.h>
+//#include <ec/compal/ene932/ec.h>
 
+#if 0
 /* The keyboard matrix tells the EC how the keyboard is wired internally */
 static void set_keyboard_matrix_us(void)
 {
@@ -19,9 +21,11 @@ static void enter_apm_mode(void)
 	ec_kbc_write_cmd(0x59);
 	ec_kbc_write_ib(0xE9);
 }
+#endif
 
-void pavilion_m6_1035dx_ec_init(void)
+void lenovo_g505s_ec_init(void)
 {
+#if 0
 	set_keyboard_matrix_us();
 
 	/*
@@ -33,4 +37,5 @@ void pavilion_m6_1035dx_ec_init(void)
 	 * receiving the following command.
 	 */
 	enter_apm_mode();
+#endif
 }

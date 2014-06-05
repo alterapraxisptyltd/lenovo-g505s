@@ -2,6 +2,7 @@
 # This file is part of the coreboot project.
 #
 # Copyright (C) 2012 Advanced Micro Devices, Inc.
+# Copyright (C) 2014 Edward O'Callaghan <eocallaghan@alterapraxis.com>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -30,8 +31,8 @@ chip northbridge/amd/agesa/family15tn/root_complex
 
 			chip northbridge/amd/agesa/family15tn # PCI side of HT root complex
 				device pci 0.0 on  end # Root Complex
-				device pci 1.0 on  end # Internal Graphics P2P bridge 0x99XX
-				device pci 1.1 on  end # Internal Multimedia
+				device pci 1.0 on  end # Richardland [Radeon HD 8650G] 1002:990b
+				device pci 1.1 on  end # Trinity HDMI Audio Controller 1002:9902
 				device pci 3.0 off end
 				device pci 4.0 on  end # PCIE MINI0
 				device pci 5.0 on  end # PCIE MINI1
@@ -39,31 +40,31 @@ chip northbridge/amd/agesa/family15tn/root_complex
 			end	#chip northbridge/amd/agesa/family15tn # PCI side of HT root complex
 
 			chip southbridge/amd/agesa/hudson # it is under NB/SB Link, but on the same pci bus
-				device pci 10.0 on  end # XHCI HC0
-				device pci 11.0 on  end # SATA
-				device pci 12.0 on  end # USB
-				device pci 12.2 on  end # USB
-				device pci 13.0 on  end # USB
-				device pci 13.2 on  end # USB
-				device pci 14.0 on      # SMBUS
+				device pci 10.0 on  end # XHCI HC0 1022:7814
+				device pci 11.0 on  end # SATA 1022:7801
+				device pci 12.0 on  end # USB OHCI 1022:7807
+				device pci 12.2 on  end # USB EHCI 1022:7808
+				device pci 13.0 on  end # USB OHCI 1022:7807
+				device pci 13.2 on  end # USB EHCI 1022:7808
+				device pci 14.0 on      # FCH SMBus 1022:780b
 					chip drivers/generic/generic #dimm 0
 						device i2c 50 on end # 7-bit SPD address
 					end
 					chip drivers/generic/generic #dimm 1
 						device i2c 51 on end # 7-bit SPD address
 					end
-				end # SM
-				device pci 14.2 on  end # HDA	0x4383
-				device pci 14.3 on  # LPC	0x439d
+				end # FCH SMBus
+				device pci 14.2 on  end # FCH Azalia 1022:780d
+				device pci 14.3 on  # FCH LPC Bridge 1022:780e
 					chip ec/compal/ene932
 						# 60/64 KBC
 						device pnp ff.1 on end # dummy address
 					end
-				end
+				end # FCH LPC Bridge
 				device pci 14.4 on  end # PCI	0x4384 # PCI-b conflict with GPIO.
-				device pci 14.5 on  end # USB 2
+				device pci 14.5 off end # USB 2
 				device pci 14.6 off end # Gec
-				device pci 14.7 on  end # SD
+				device pci 14.7 off end # SD
 				device pci 15.0 off end # PCIe 0
 				device pci 15.1 off end # PCIe 1
 				device pci 15.2 off end # PCIe 2
@@ -72,12 +73,12 @@ chip northbridge/amd/agesa/family15tn/root_complex
 				register "gpp_configuration" = "4"
 			end	#chip southbridge/amd/hudson
 
-			device pci 18.0 on end
-			device pci 18.1 on end
-			device pci 18.2 on end
-			device pci 18.3 on end
-			device pci 18.4 on end
-			device pci 18.5 on end
+			device pci 18.0 on end # 1022:1400
+			device pci 18.1 on end # 1022:1401
+			device pci 18.2 on end # 1022:1402
+			device pci 18.3 on end # 1022:1403
+			device pci 18.4 on end # 1022:1404
+			device pci 18.5 on end # 1022:1405
 
 			register "spdAddrLookup" = "
 			{

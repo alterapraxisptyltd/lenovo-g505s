@@ -2,11 +2,12 @@
  * "The way things are connected" and a few setup options
  *
  * Copyright (C) 2014 Alexandru Gagniuc <mr.nuke.me@gmail.com>
+ * Copyright (C) 2014 Edward O'Callaghan <eocallaghan@alterapraxis.com>
  * Subject to the GNU GPL v2, or (at your option) any later version.
  */
 
-#ifndef _MAINBOARD_HP_PAVILION_M6_1035DX_MAINBOARD_H
-#define _MAINBOARD_HP_PAVILION_M6_1035DX_MAINBOARD_H
+#ifndef _MAINBOARD_LENOVO_G505S_MAINBOARD_H
+#define _MAINBOARD_LENOVO_G505S_MAINBOARD_H
 
 /* What is connected to GEVENT pins */
 #define EC_SCI_GEVENT		3
@@ -22,4 +23,4 @@
 #define PME_GPE			0x0b
 #define PCIE_GPE		0x18
 
-#endif /* _MAINBOARD_HP_PAVILION_M6_1035DX_MAINBOARD_H   */
+#endif /* _MAINBOARD_LENOVO_G505S_MAINBOARD_H */

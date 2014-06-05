@@ -1,15 +1,16 @@
 /*
  * Copyright (C) 2014 Alexandru Gagniuc <mr.nuke.me@gmail.com>
+ * Copyright (C) 2014 Edward O'Callaghan <eocallaghan@alterapraxis.com>
  * Subject to the GNU GPL v2, or (at your option) any later version.
  */
 
-#ifndef _MAINBOARD_HP_PAVILION_M6_1035DX_EC_H
-#define _MAINBOARD_HP_PAVILION_M6_1035DX_EC_H
+#ifndef _MAINBOARD_LENOVO_G505S_EC_H
+#define _MAINBOARD_LENOVO_G505S_EC_H
 
 #include "mainboard.h"
 
 #ifndef __SMM__
-void pavilion_m6_1035dx_ec_init(void);
-#endif
+void lenovo_g505s_ec_init(void);
+#endif /* __SMM__ */
 
-#endif /* _MAINBOARD_HP_PAVILION_M6_1035DX_EC_H   */
+#endif /* _MAINBOARD_LENOVO_G505S_EC_H */
