@@ -3,6 +3,11 @@ if VENDOR_LENOVO
 choice
 	prompt "Mainboard model"
 
+config BOARD_LENOVO_G505S
+	bool "ThinkPad G505s"
+	help
+	  Lenovo G505s laptop. Consult wiki for details.
+
 config BOARD_LENOVO_X60
 	bool "ThinkPad X60 / X60s"
 	help
@@ -42,6 +47,7 @@ config BOARD_LENOVO_T60
 
 endchoice
 
+source "src/mainboard/lenovo/g505s/Kconfig"
 source "src/mainboard/lenovo/x60/Kconfig"
 source "src/mainboard/lenovo/x201/Kconfig"
 source "src/mainboard/lenovo/x230/Kconfig"
